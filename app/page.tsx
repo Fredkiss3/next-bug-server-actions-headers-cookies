@@ -1,15 +1,16 @@
-import { getCookie, getHeader } from "./actions";
-import { CookieGetter } from "./cookie-getter";
-import { CookieGetterActionPassedDown } from "./cookie-getter-actions-passed-down";
+import { redirect } from "next/navigation";
 
 export default function Home() {
+  async function action() {
+    "use server";
+    redirect("/");
+  }
   return (
     <main>
-      <CookieGetter />
-      <CookieGetterActionPassedDown
-        getCookieAction={getCookie}
-        getHeaderAction={getHeader}
-      />
+      <h1>Flashing UI ? {new Date().valueOf()} </h1>
+      <form action={action}>
+        <button>Redirect</button>
+      </form>
     </main>
   );
 }
