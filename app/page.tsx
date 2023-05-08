@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default function Home() {
@@ -9,8 +10,10 @@ export default function Home() {
     <main>
       <h1>Flashing UI ? {new Date().valueOf()} </h1>
       <form action={action}>
-        <button>Redirect</button>
+        <button>Redirect with form</button>
       </form>
+
+      <Link href={`/redirect/source`}>Redirect with link</Link>
     </main>
   );
 }
